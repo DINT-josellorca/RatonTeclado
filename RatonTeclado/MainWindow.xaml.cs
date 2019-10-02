@@ -55,7 +55,7 @@ namespace RatonTeclado
 
         private void TextBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            RatonSobre_TextBox.Text = ((TextBox)sender).Name;
+            RatonSobre_TextBox.Text = (sender as TextBox).Name;
         }
 
         private void TextBox_MouseLeave(object sender, MouseEventArgs e)
@@ -65,7 +65,7 @@ namespace RatonTeclado
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            Foco_TextBox.Text = ((TextBox)sender).Name;
+            Foco_TextBox.Text = (sender as TextBox).Name;
         }
 
         private void SinVocales_TextBox_KeyDown(object sender, KeyEventArgs e)
