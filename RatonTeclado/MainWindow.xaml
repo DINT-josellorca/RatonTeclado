@@ -5,21 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RatonTeclado"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseLeftButtonUp="Window_MouseLeftButtonUp" MouseRightButtonDown="Window_MouseRightButtonDown" MouseRightButtonUp="Window_MouseRightButtonUp">
+        Title="MainWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseButtonDown" MouseLeftButtonUp="Window_MouseButtonUp" MouseRightButtonDown="Window_MouseButtonDown" MouseRightButtonUp="Window_MouseButtonUp" KeyDown="Window_KeyDown">
     <Grid>
-        <TextBox x:Name="mayusculas_TextBox" HorizontalAlignment="Left" Height="24" Margin="146,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Mayusculas_TextBox_TextChanged" MouseEnter="Mayusculas_TextBox_MouseEnter" MouseLeave="Mayusculas_TextBox_MouseLeave"/>
-        <TextBox x:Name="ayuda_TextBox" HorizontalAlignment="Left" Height="22" Margin="146,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" GotFocus="Ayuda_TextBox_GotFocus"/>
-        <TextBox x:Name="sinVocales_TextBox" HorizontalAlignment="Left" Height="22" Margin="146,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="510,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="510,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="BotonIzquierdo_TextBox" HorizontalAlignment="Left" Height="23" Margin="563,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Background="White" IsReadOnly="True"/>
-        <TextBox x:Name="BotonDerecho_TextBox1" HorizontalAlignment="Left" Height="23" Margin="593,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" IsReadOnly="True"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="mayusculas_TextBox" HorizontalAlignment="Left" Height="24" Margin="146,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MouseEnter="TextBox_MouseEnter" MouseLeave="TextBox_MouseLeave" GotFocus="TextBox_GotFocus" CharacterCasing="Upper" />
+        <TextBox x:Name="ayuda_TextBox" HorizontalAlignment="Left" Height="22" Margin="146,206,0,0" VerticalAlignment="Top" Width="120" MouseEnter="TextBox_MouseEnter" MouseLeave="TextBox_MouseLeave" GotFocus="TextBox_GotFocus" TextWrapping="Wrap" IsReadOnly="True" />
+        <TextBox x:Name="sinVocales_TextBox" HorizontalAlignment="Left" Height="22" Margin="146,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MouseEnter="TextBox_MouseEnter" MouseLeave="TextBox_MouseLeave" GotFocus="TextBox_GotFocus" KeyDown="SinVocales_TextBox_KeyDown" />
+        <TextBox x:Name="Foco_TextBox" HorizontalAlignment="Left" Height="23" Margin="510,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="RatonSobre_TextBox" HorizontalAlignment="Left" Height="23" Margin="510,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="BotonIzquierdo_TextBox" HorizontalAlignment="Left" Height="23" Margin="563,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" Background="White" IsReadOnly="True" GotFocus="QuitarTextBox_GotFocus"/>
+        <TextBox x:Name="BotonDerecho_TextBox1" HorizontalAlignment="Left" Height="23" Margin="593,314,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="25" IsReadOnly="True" GotFocus="QuitarTextBox_GotFocus"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="510,314,0,0" TextWrapping="Wrap" Text="Botones" VerticalAlignment="Top" Width="53"/>
         <TextBlock HorizontalAlignment="Left" Margin="510,185,0,0" TextWrapping="Wrap" Text="Raton sobre" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="510,73,0,0" TextWrapping="Wrap" Text="Foco" VerticalAlignment="Top" RenderTransformOrigin="0.609,-7.25"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,73,0,0" TextWrapping="Wrap" Text="TextBox1" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,185,0,0" TextWrapping="Wrap" Text="TextBox2" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="146,293,0,0" TextWrapping="Wrap" Text="TextBox3" VerticalAlignment="Top"/>
+
 
     </Grid>
 </Window>

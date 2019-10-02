@@ -26,45 +26,75 @@ namespace RatonTeclado
             InitializeComponent();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Window_MouseButtonDown(object sender, MouseButtonEventArgs e)
         {
-            BotonIzquierdo_TextBox.Background = Brushes.Green;
-            
+            if (e.LeftButton == MouseButtonState.Pressed && e.RightButton == MouseButtonState.Released)
+
+                BotonIzquierdo_TextBox.Background = Brushes.Green;
+            else if (e.LeftButton == MouseButtonState.Pressed && e.RightButton == MouseButtonState.Pressed)
+            {
+                BotonIzquierdo_TextBox.Background = Brushes.Green;
+                BotonDerecho_TextBox1.Background = Brushes.Green;
+            }
+            else
+                BotonDerecho_TextBox1.Background = Brushes.Green;
         }
 
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Window_MouseButtonUp(object sender, MouseButtonEventArgs e)
         {
-            BotonIzquierdo_TextBox.Background = Brushes.White;
+            if (e.LeftButton == MouseButtonState.Released && e.RightButton == MouseButtonState.Pressed)
+                BotonIzquierdo_TextBox.Background = Brushes.White;
+            else if (e.LeftButton == MouseButtonState.Released && e.RightButton == MouseButtonState.Released)
+            {
+                BotonIzquierdo_TextBox.Background = Brushes.White;
+                BotonDerecho_TextBox1.Background = Brushes.White;
+            }
+            else
+                BotonDerecho_TextBox1.Background = Brushes.White;
         }
 
-        private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        private void TextBox_MouseEnter(object sender, MouseEventArgs e)
         {
-            BotonDerecho_TextBox1.Background = Brushes.Green;
+            RatonSobre_TextBox.Text = ((TextBox)sender).Name;
         }
 
-        private void Window_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void TextBox_MouseLeave(object sender, MouseEventArgs e)
         {
-            BotonDerecho_TextBox1.Background = Brushes.White;
+            RatonSobre_TextBox.Text = "";
         }
 
-        private void Mayusculas_TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            mayusculas_TextBox.Text = mayusculas_TextBox.Text.ToUpper();
+            Foco_TextBox.Text = ((TextBox)sender).Name;
         }
 
-        private void Mayusculas_TextBox_MouseEnter(object sender, MouseEventArgs e)
+        private void SinVocales_TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            switch(e.Key)
+            {
+                case Key.A:
+                case Key.E:
+                case Key.I:
+                case Key.O:
+                case Key.U:
+                    e.Handled = true;
+                    break;
+                default:
+
+                    break;
+            }
         }
 
-        private void Mayusculas_TextBox_MouseLeave(object sender, MouseEventArgs e)
+        private void QuitarTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-
+            Foco_TextBox.Text = "";
         }
 
-        private void Ayuda_TextBox_GotFocus(object sender, RoutedEventArgs e)
+        private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            ayuda_TextBox.Text = "Ayuda";
+            if (e.Key == Key.F1)
+                ayuda_TextBox.Text = "Ayuda";
+
         }
     }
 }
